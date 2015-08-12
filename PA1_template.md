@@ -1,9 +1,4 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 
 
@@ -63,7 +58,7 @@ hist(
 )
 ```
 
-<img src="figure/stepsPerDayPlot-1.png" title="plot of chunk stepsPerDayPlot" alt="plot of chunk stepsPerDayPlot" style="display: block; margin: auto;" />
+<img src="figure/stepsPerDayPlot-1.png" title="" alt="" style="display: block; margin: auto;" />
 
 > 3. Calculate and report the mean and median of the total number of steps taken per day
 
@@ -78,12 +73,10 @@ names(df) <- c("Value")
 kable(df)
 ```
 
-
-
-|       |    Value|
-|:------|--------:|
-|Mean   | 10766.19|
-|Median | 10765.00|
+             Value
+-------  ---------
+Mean      10766.19
+Median    10765.00
 
 # What is the average daily activity pattern?
 
@@ -103,7 +96,7 @@ plot(
 )
 ```
 
-<img src="figure/stepsPerInterval-1.png" title="plot of chunk stepsPerInterval" alt="plot of chunk stepsPerInterval" style="display: block; margin: auto;" />
+<img src="figure/stepsPerInterval-1.png" title="" alt="" style="display: block; margin: auto;" />
 
 > 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -179,14 +172,14 @@ stepsPerDay <- aggregate(x = activity$steps, by = list(activity$date), FUN = sum
 names(stepsPerDay) <- c("Day", "Steps")
 hist(
   stepsPerDay$Steps,
-  # breaks = (0:10)*2500,
+  breaks = (0:10)*2500,
   main = "Total number of steps taken each day (before imputing values)",
   xlab = "Steps per Day",
   ylab = "Frequency"
 )
 ```
 
-<img src="figure/stepsPerDayHist2-1.png" title="plot of chunk stepsPerDayHist2" alt="plot of chunk stepsPerDayHist2" style="display: block; margin: auto;" />
+<img src="figure/stepsPerDayHist2-1.png" title="" alt="" style="display: block; margin: auto;" />
 
 Then plot the data with imputed values:
 
@@ -196,14 +189,14 @@ stepsPerDayCompleted <- aggregate(x = activityCompleted$steps, by = list(activit
 names(stepsPerDayCompleted) <- c("Day", "Steps")
 hist(
   stepsPerDayCompleted$Steps,
-  # breaks = (0:10)*2500,
+  breaks = (0:10)*2500,
   main = "Total number of steps taken each day (after imputing values)",
   xlab = "Steps per Day",
   ylab = "Frequency"
 )
 ```
 
-<img src="figure/stepsPerDayCompletedHist-1.png" title="plot of chunk stepsPerDayCompletedHist" alt="plot of chunk stepsPerDayCompletedHist" style="display: block; margin: auto;" />
+<img src="figure/stepsPerDayCompletedHist-1.png" title="" alt="" style="display: block; margin: auto;" />
 
 And finally compute mean and median values:
 
@@ -217,12 +210,10 @@ names(df) <- c("Value")
 kable(df)
 ```
 
-
-
-|       |    Value|
-|:------|--------:|
-|Mean   | 10766.19|
-|Median | 10766.19|
+             Value
+-------  ---------
+Mean      10766.19
+Median    10766.19
 
 The total numbers of steps are increased by the number of NAs times the average number of steps of the interval.
 
@@ -261,5 +252,5 @@ ggplot(stepsPerIntervalBydaytype, aes(interval, steps)) +
   facet_grid(daytype ~ .)
 ```
 
-<img src="figure/panelPlot-1.png" title="plot of chunk panelPlot" alt="plot of chunk panelPlot" style="display: block; margin: auto;" />
+<img src="figure/panelPlot-1.png" title="" alt="" style="display: block; margin: auto;" />
  

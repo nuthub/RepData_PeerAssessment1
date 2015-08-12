@@ -128,7 +128,7 @@ stepsPerDay <- aggregate(x = activity$steps, by = list(activity$date), FUN = sum
 names(stepsPerDay) <- c("Day", "Steps")
 hist(
   stepsPerDay$Steps,
-  # breaks = (0:10)*2500,
+  breaks = (0:10)*2500,
   main = "Total number of steps taken each day (before imputing values)",
   xlab = "Steps per Day",
   ylab = "Frequency"
@@ -142,7 +142,7 @@ stepsPerDayCompleted <- aggregate(x = activityCompleted$steps, by = list(activit
 names(stepsPerDayCompleted) <- c("Day", "Steps")
 hist(
   stepsPerDayCompleted$Steps,
-  # breaks = (0:10)*2500,
+  breaks = (0:10)*2500,
   main = "Total number of steps taken each day (after imputing values)",
   xlab = "Steps per Day",
   ylab = "Frequency"
